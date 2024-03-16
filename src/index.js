@@ -15,27 +15,26 @@ const commands = async (client, message, openai) => {
     const command = commandBody.split(' ')[0]
     const args = commandBody.slice(command.length).trim()
     const messageFrom = get(message, 'from')
+    const chatId = message.chatId // use to save history for chat
 
     //use to send msg and img to your number 
     const target = messageFrom === process.env.WHATSAPP_BOT_NUMBER ? message.to : messageFrom
 
     //use to send msg and img to outhers numbers
-    // const target = message.chatId;
-
+    // const target = chatId
 
     if (command === 'bot') {
-        const response = await generateText(openai, args)
+        const response = await generateText(openai, chatId, args)
         client.sendText(target, response)
     }
 
     if (command === 'img') {
-        const imgDescription = message.body.substring(message.body.indexOf(" "))
-        const imgUrl = await generateImage(openai, imgDescription)
+        const imgUrl = await generateImage(openai, chatId, args)
 
         await client.sendImage(
             target,
             imgUrl,
-            imgDescription,
+            args,
             'Imagem gerada pela IA DALL-E 🤖'
         )
     }
