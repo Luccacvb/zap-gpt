@@ -15,7 +15,13 @@ const commands = async (client, message, openai) => {
     const command = commandBody.split(' ')[0]
     const args = commandBody.slice(command.length).trim()
     const messageFrom = get(message, 'from')
+
+    //use to send msg and img to your number 
     const target = messageFrom === process.env.WHATSAPP_BOT_NUMBER ? message.to : messageFrom
+
+    //use to send msg and img to outhers numbers
+    // const target = message.chatId;
+
 
     if (command === 'bot') {
         const response = await generateText(openai, args)
@@ -42,10 +48,11 @@ const start = async (client) => {
     })
 
     client.onAnyMessage(message => {
-        if (!message.isGroupMsg) {
-            console.log('Mensagem recebida:', message.body)
-            commands(client, message, openai)
-        }
+        //this if remove send message to groups
+        // if (!message.isGroupMsg) {
+        console.log('Mensagem recebida:', message.body)
+        commands(client, message, openai)
+        // }
     })
 
     console.log('Bot iniciado e esperando por mensagens...')
