@@ -1,4 +1,5 @@
 // this function to fix error internal to venom bot
+// important!!! you need to execute: node fix-venom.js
 import { readFileSync, writeFileSync } from 'fs'
 
 const path = './node_modules/venom-bot/dist/lib/wapi/wapi.js'
