@@ -11,7 +11,7 @@ export async function generateImage(openaiClient, description) {
     };
     try {
         const response = await openaiClient.images.generate(options)
-        const url = get(response,'data[0].url' )
+        const url = get(response, 'data[0].url')
         return url
     } catch (e) {
         return "Erro ao gerar imagem. Por favor, tente novamente mais tarde."

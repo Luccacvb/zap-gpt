@@ -35,7 +35,7 @@ const commands = async (client, message, openai) => {
     }
 }
 
-const start = async(client) => {
+const start = async (client) => {
     const openai = new OpenAI({
         apiKey: process.env.OPENAI_API_KEY,
         organization: process.env.ORGANIZATION_ID,
