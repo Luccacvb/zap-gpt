@@ -6,13 +6,13 @@ export async function generateImage(openaiClient, chatId, description) {
     if (!chatImageDescriptions[chatId]) {
         chatImageDescriptions[chatId] = []
     }
-    
+
     if (typeof description === 'string' && description.trim() !== '') {
         chatImageDescriptions[chatId].push(description.trim())
     }
 
     const options = {
-        model: "dall-e-2",
+        model: "dall-e-3",
         prompt: description,
         size: "1024x1024",
         quality: "standard",
