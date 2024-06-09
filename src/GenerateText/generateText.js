@@ -6,6 +6,7 @@ function addInitialContext(chatId) {
     if (!chatHistories[chatId]) {
         chatHistories[chatId] = []
     }
+    // no content, voce deixa um prompt inicial de como a IA deve se portar 
     if (!chatHistories[chatId] || chatHistories[chatId].length === 0) {
         chatHistories[chatId].push({
             role: "system",
@@ -16,7 +17,7 @@ function addInitialContext(chatId) {
 
 export async function generateText(openaiClient, chatId, clientText) {
     addInitialContext(chatId)
-    
+
     if (typeof clientText === 'string' && clientText.trim() !== '') {
         chatHistories[chatId].push({ role: "user", content: clientText.trim() })
     }
