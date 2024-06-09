@@ -22,7 +22,7 @@
     "inquirer": "^9.2.15",
     "lodash": "^4.17.21",
     "openai": "^4.28.4",
-    "sharp": "^0.33.3",
+    "sharp": "^0.33.4",
     "venom-bot": "^5.0.21"
   },
   "devDependencies": {
