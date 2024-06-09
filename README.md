@@ -1,3 +1,5 @@
+[Read this in English](./README.en.md)
+
 # Chat-GPT Bot
 
 Este projeto implementa um bot de inteligência artificial de chat que utiliza a API da OpenAI para gerar respostas textuais, imagens e conversões de texto para áudio. O bot é construído usando a biblioteca `venom-bot` para integração com o WhatsApp.
